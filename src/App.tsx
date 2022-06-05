@@ -8,22 +8,26 @@ import { currentDay } from './utils/dateFormater'
 const App: FC = () => {
 
   const [task, setTask] = useState<string>("")
-  const [deadline, setDeadline] = useState<number>(0)
+  const [deadline, setDeadline] = useState<string>("")
+  const [description, setDescription] = useState<string>("")
   const [todoList, setTodoList] = useState<ITask[]>([])
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
     if (event.target.name === "task") {
       setTask(event.target.value)
+    } else if (event.target.name === "deadline") {
+      setDeadline(event.target.value)
     } else {
-      setDeadline(Number(event.target.value))
+      setDescription(event.target.value)
     }
   }
 
   const addTask = (): void => {
-    const newTask = { taskName: task, deadline }
+    const newTask = { taskName: task, deadline, description }
     setTodoList([...todoList, newTask])
     setTask("")
-    setDeadline(0)
+    setDeadline("")
+    setDescription("")
   }
 
   const completeTask = (taskNameToDelete: string): void => {
@@ -45,10 +49,14 @@ const App: FC = () => {
           <div className="add-icon"><span>+</span></div>
           <div className="add-inputs">
             <h6>Add new task</h6>
-            <input type="text" placeholder='Task' name="task" value={task} onChange={handleChange} />
-            <input type="number" placeholder='Deadline (in days)...' name="deadline" value={deadline} onChange={handleChange} />
-            <textarea className="descriptionInput" name="description" id="desription" placeholder='Description'></textarea>
-            <div className='add-btn-container'><button onClick={addTask} className='add-btn'>add</button></div>
+            <div className='taskName-time'>
+              <input type="text" placeholder='Task' name="task" value={task} onChange={handleChange} />
+              <input type="time" name="deadline" value={deadline} onChange={handleChange} className="timeInput" />
+            </div>
+            <input type="text" placeholder='Description' name="description" value={description} onChange={handleChange} className="descriptionInput"></input>
+            <div className='add-btn-container'>
+              <button onClick={addTask} className='add-btn'>add</button>
+            </div>
           </div>
 
         </div>
@@ -69,7 +77,7 @@ const App: FC = () => {
         <div className="column2">
           <h1>Hello XXXX</h1>
         </div>
-        
+
       </div>
 
     </div>

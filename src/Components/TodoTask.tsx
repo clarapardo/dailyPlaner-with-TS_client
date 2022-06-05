@@ -18,7 +18,7 @@ const TodoTask = ({ task, completeTask }: Props) => {
                         <h3>{task.deadline}</h3>
                     </div>
                     <div>
-                        <p>aqui hiría la descripción</p>
+                        <p>{task.description}</p>
                     </div>
 
                 </div>

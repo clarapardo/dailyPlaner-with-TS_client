@@ -45,7 +45,6 @@ body {
 
 .eachTask {
   display: flex;
-  width: 600px;
 }
 
 .task {
@@ -133,7 +132,6 @@ body {
   background-color: white;
   border-radius: 15px;
   padding: 20px;
-  padding-right: 40px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
@@ -145,7 +143,7 @@ body {
   background-color: #226F54;
   padding: 5px;
   border-radius: 5px;
-  width: 30px;
+  width: 20px;
   height: 20px;
   display: flex;
   align-items: center;
@@ -155,6 +153,7 @@ body {
 
 .add-inputs {
   padding-left: 20px;
+  width: 80%
 }
 
 .add-inputs h6 {
@@ -165,8 +164,8 @@ body {
 
 .add-btn-container {
   display: flex;
-  justify-content: flex-end;
-  margin-top: 10px;
+  justify-content:end;
+  
 }
 
 .add-btn {
@@ -193,6 +192,15 @@ input {
   border-radius: 5px;
   padding: 5px;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.timeInput {
+  width: 105px;
+  margin-left: 5px
+}
+
+.taskName-time{
+  display: flex
 }
 
 
