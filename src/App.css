@@ -5,10 +5,6 @@ body {
 
 .App {
   display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 100vw;
-  height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -93,4 +89,67 @@ body {
   border-bottom-right-radius: 8px;
   color: white;
   cursor: pointer;
+}
+
+
+/* -------------- */
+
+.left-panel {
+  background-color: rgb(227, 227, 227);
+  height: 100vh;
+  width: 30%;
+  padding: 20px 40px;
+}
+
+.right-panel {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.column2 {
+  width: 25%;
+  background-color: aquamarine;
+}
+
+.newTaskCard {
+  display: flex;
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.add-icon span {
+  font-size: 1.5rem;
+}
+
+.add-icon {
+  background-color: #226F54;
+  padding: 5px;
+  border-radius: 5px;
+  width: 30px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white
+}
+
+.add-inputs{
+  padding-left: 20px;
+}
+
+.add-inputs h6 {
+  margin-top: 8px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+.add-btn{
+background-color: #BA7BA1;
+border: none;
+padding: 5px 15px;
+border-radius: 20px;
+color: white
 }
