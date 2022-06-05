@@ -24,16 +24,35 @@ const App: FC = () => {
 
   const addTask = (): void => {
     const newTask = { taskName: task, deadline, description }
-    setTodoList([...todoList, newTask])
+    let newList = JSON.parse(JSON.stringify(todoList))
+    newList.push(newTask)
+    newList = newList.sort(orderCondition)
+
+    setTodoList(newList)
     setTask("")
     setDeadline("")
     setDescription("")
   }
-
+  
+  
   const completeTask = (taskNameToDelete: string): void => {
     setTodoList(todoList.filter((task) => {
       return task.taskName != taskNameToDelete
     }))
+  }
+
+  const orderCondition = (taskA: any, taskB: any): number => {
+    if (taskB.deadline.slice(0, 2) * 1 > taskA.deadline.slice(0, 2) * 1) {
+      return -1
+    } else if (taskB.deadline.slice(0, 2) * 1 < taskA.deadline.slice(0, 2) * 1) {
+      return 1
+    } else {
+      if (taskB.deadline.slice(3) * 1 > taskA.deadline.slice(3) * 1) {
+        return -1
+      } else {
+        return 1
+      }
+    }
   }
 
 

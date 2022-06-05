@@ -2,8 +2,6 @@
 
 Pending: 
 
-- Vincular la descripción
-- Modificar a tipo Date (hora)
 - Incluir un selector de categoriía (sports, work, socials, whatever...)
 
 
