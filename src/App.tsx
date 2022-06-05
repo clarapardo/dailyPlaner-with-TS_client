@@ -44,46 +44,34 @@ const App: FC = () => {
 
           <div className="add-icon"><span>+</span></div>
           <div className="add-inputs">
-            <h6>Add a new task</h6>
+            <h6>Add new task</h6>
             <input type="text" placeholder='Task' name="task" value={task} onChange={handleChange} />
             <input type="number" placeholder='Deadline (in days)...' name="deadline" value={deadline} onChange={handleChange} />
-            <textarea name="description" id="desription" placeholder='Description'></textarea>
-            <div><button onClick={addTask} className='add-btn'>add</button></div>
+            <textarea className="descriptionInput" name="description" id="desription" placeholder='Description'></textarea>
+            <div className='add-btn-container'><button onClick={addTask} className='add-btn'>add</button></div>
           </div>
 
         </div>
       </div>
 
       <div className="right-panel">
+
         <div className="column1">
           <h1>Today's schedule</h1>
-          <h1>{currentDay()}</h1>
-          <div className="todoList">
+          <h1 className="currentDay">{currentDay()}</h1>
+          <div>
             {todoList.map((task: ITask, key: number) => {
               return <TodoTask key={key} task={task} completeTask={completeTask} />
             })}
           </div>
         </div>
+
         <div className="column2">
-          <h1>Hello Clara</h1>
+          <h1>Hello XXXX</h1>
         </div>
-
-
+        
       </div>
 
-
-      {/* <div className="header">
-        <div className='inputContainer'>
-          <input type="text" placeholder='Task...' name="task" value={task} onChange={handleChange} />
-          <input type="number" placeholder='Deadline (in days)...' name="deadline" value={deadline} onChange={handleChange} />
-        </div>
-        <button onClick={addTask}>Add task</button>
-      </div> */}
-      {/* <div className="todoList">
-        {todoList.map((task: ITask, key: number) => {
-          return <TodoTask key={key} task={task} completeTask={completeTask} />
-        })}
-      </div> */}
     </div>
   );
 }
