@@ -57,8 +57,9 @@ body {
   background-color: rgb(241, 237, 237);
   border-radius: 15px;
 }
+
 .task:hover {
-  background-color: #79C99E;
+  background-color: #97DB4F;
 }
 
 
@@ -70,6 +71,10 @@ body {
 .taskInfo {
   padding: 0px 30px;
   width: 100%;
+}
+
+.taskInfo p {
+  margin-bottom: 0px;
 }
 
 .taskTitle button {
@@ -117,14 +122,18 @@ body {
 }
 
 .currentDay {
-  color: #79C99E;
+  color: #97DB4F;
   margin: 0px;
   font-weight: lighter;
 }
 
 .column2 {
   width: 30%;
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .newTaskCard {
@@ -164,12 +173,13 @@ body {
 
 .add-btn-container {
   display: flex;
-  justify-content:end;
-  
+  justify-content: end;
+
 }
 
 .add-btn {
-  background-color: #97DB4F;
+  background-color: #79C99E;
+  ;
   border: none;
   padding: 5px 20px;
   border-radius: 20px;
@@ -199,7 +209,7 @@ input {
   margin-left: 5px
 }
 
-.taskName-time{
+.taskName-time {
   display: flex
 }
 
@@ -211,4 +221,29 @@ input {
 /* -------- ICONS -------- */
 .icon-trashcan:before {
   content: "\e900";
+}
+
+
+/* -------- CALENDAR --------*/
+
+.sdp {
+  width: auto !important;
+  margin-top: 60px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;
+  --theme-color: #79C99E !important;
+  border-radius: 1rem !important
+}
+
+/* -------- BLOB --------*/
+.style1 {
+  opacity: 1;
+  width: 175px
+}
+
+.style2 {
+  stop-color: rgb(151, 219, 79)
+}
+
+.style3 {
+  stop-color: rgb(121, 201, 158)
 }
