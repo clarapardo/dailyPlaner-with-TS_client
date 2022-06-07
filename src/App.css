@@ -5,7 +5,7 @@ body {
 
 .App {
   display: flex;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .header .inputContainer {
@@ -107,6 +107,12 @@ body {
   padding: 20px 40px;
 }
 
+.left-panel h1 {
+  font-size: 0.9rem;
+  margin-bottom: 50px;
+  color: #226F54
+}
+
 .right-panel {
   display: flex;
   width: 100%;
@@ -132,8 +138,7 @@ body {
   /* background-color: aquamarine; */
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
+  align-items: flex-end;
 }
 
 .newTaskCard {
@@ -201,7 +206,7 @@ input {
   height: 60px;
   border-radius: 5px;
   padding: 5px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .timeInput {
@@ -213,14 +218,41 @@ input {
   display: flex
 }
 
+.time-weather {
+  background-color: rgb(241, 237, 237);
+  border-radius: 15px;
+  padding: 20px;
+  height: 100px;
+  width: 70%;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;
+  margin-top: 50px;
+  margin-right: 20px;
+}
+
+.premium {
+  background-color: rgb(241, 237, 237);
+  border-radius: 15px;
+  padding: 20px;
+  height: 200px;
+  width: 70%;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;
+  margin-top: 50px;
+  margin-right: 20px;
+}
+
 
 
 
 
 
 /* -------- ICONS -------- */
-.icon-trashcan:before {
-  content: "\e900";
+.logo {
+  width: 13px;
+  margin-right: 10px;
+}
+
+.trash {
+  width: 12px
 }
 
 
