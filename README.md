@@ -3,6 +3,7 @@
 Pending: 
 
 - Incluir un selector de categoría (sports, work, socials, whatever...)
+- Separete things into components
 
 
 - Once completed, (bc change | move to the right as a list ¿?)
@@ -10,6 +11,5 @@ Pending:
 
 
 - Add Bootstrap
-- Separete things into components
 - Save info on an API ¿?
 - Posibility of adding task to other days + bottom messages "correctly added"

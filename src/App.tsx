@@ -1,7 +1,7 @@
 import React, { FC, ChangeEvent, useState, isValidElement } from 'react';
 import './App.css';
-import TodoTask from './Components/TodoTask'
-import { ITask } from './interfaces'
+import TodoTask from './components/TodoTask'
+import { ITask } from './interfaces/ITask'
 import { currentDay } from './utils/dateFormater'
 import DatePicker from 'sassy-datepicker'
 
@@ -11,6 +11,7 @@ const App: FC = () => {
   const [task, setTask] = useState<string>("")
   const [deadline, setDeadline] = useState<string>("")
   const [description, setDescription] = useState<string>("")
+  const [category, setCategory] = useState<string>("")
   const [todoList, setTodoList] = useState<ITask[]>([])
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -24,7 +25,7 @@ const App: FC = () => {
   }
 
   const addTask = (): void => {
-    const newTask = { taskName: task, deadline, description }
+    const newTask = { taskName: task, deadline, category, description }
     let newList = JSON.parse(JSON.stringify(todoList))
     newList.push(newTask)
     newList = newList.sort(orderCondition)
@@ -32,6 +33,7 @@ const App: FC = () => {
     setTodoList(newList)
     setTask("")
     setDeadline("")
+    setCategory("")
     setDescription("")
   }
 
@@ -74,7 +76,7 @@ const App: FC = () => {
               <input type="time" name="deadline" value={deadline} onChange={handleChange} className="timeInput" />
             </div>
 
-            <select name="category" id="category">
+            <select name="category" id="category" value={category} onChange={handleChange}>
               <option value="1">Workout</option>
               <option value="2">Work</option>
               <option value="3">Social</option>
