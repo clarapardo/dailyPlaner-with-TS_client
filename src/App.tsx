@@ -1,48 +1,95 @@
-import React, { FC, ChangeEvent, useState, isValidElement } from 'react';
+import React, { FC, ChangeEvent, useEffect, useState, isValidElement } from 'react';
 import './App.css';
 import TodoTask from './components/TodoTask'
-import { ITask } from './interfaces/ITask'
+import NewTask from './components/NewTask'
+import { getTasks, addTask, updateTask, deleteTask } from './API'
 import { currentDay } from './utils/dateFormater'
 import DatePicker from 'sassy-datepicker'
 
 
+
 const App: FC = () => {
 
-  const [task, setTask] = useState<string>("")
-  const [deadline, setDeadline] = useState<string>("")
-  const [description, setDescription] = useState<string>("")
-  const [category, setCategory] = useState<string>("")
-  const [todoList, setTodoList] = useState<ITask[]>([])
+  const [tasks, setTasks] = useState<ITask[]>([])
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    if (event.target.name === "task") {
-      setTask(event.target.value)
-    } else if (event.target.name === "deadline") {
-      setDeadline(event.target.value)
-    } else {
-      setDescription(event.target.value)
-    }
-  }
+  useEffect(() => {
+    fetchTasks()
+  }, [])
 
-  const addTask = (): void => {
-    const newTask = { taskName: task, deadline, category, description }
-    let newList = JSON.parse(JSON.stringify(todoList))
-    newList.push(newTask)
-    newList = newList.sort(orderCondition)
-
-    setTodoList(newList)
-    setTask("")
-    setDeadline("")
-    setCategory("")
-    setDescription("")
+  const fetchTasks = (): void => {
+    getTasks()
+      .then(({ data: { tasks } }: ITask[] | any) => setTasks(tasks))
+      .catch((err: Error) => console.log(err))
   }
 
 
-  const completeTask = (taskNameToDelete: string): void => {
-    setTodoList(todoList.filter((task) => {
-      return task.taskName != taskNameToDelete
-    }))
+
+  const handleSaveTask = (e: React.FormEvent, formData: ITask): void => {
+    e.preventDefault()
+
+    addTask(formData)
+      .then(({ status, data }) => {
+
+        if (status !== 201) {
+          throw new Error("Error! Task not saved")
+        }
+
+        setTasks(data.tasks)
+
+      })
+      .catch((err: Error) => console.log(err))
   }
+
+  const handleUpdateTask = (task: ITask): void => {
+
+    updateTask(task)
+      .then(({ status, data }) => {
+        if (status !== 200) {
+          throw new Error("Error! Task not updated")
+        }
+        setTasks(data.tasks)
+      })
+      .catch(err => console.log(err))
+  }
+
+  const handleDeleteTask = (_id: string): void => {
+
+    deleteTask(_id)
+      .then(({ status, data }) => {
+        if (status !== 200) {
+          throw new Error("Error! Task not deleted")
+        }
+        setTasks(data.tasks)
+      })
+      .catch(err => console.log(err))
+  }
+
+  // const [task, setTask] = useState<string>("")
+  // const [deadline, setDeadline] = useState<string>("")
+  // const [description, setDescription] = useState<string>("")
+  // const [category, setCategory] = useState<string>("")
+  // const [todoList, setTodoList] = useState<ITask[]>([])
+
+
+  // const addTask = (): void => {
+  //   const newTask = { taskName: task, deadline, category, description }
+  //   let newList = JSON.parse(JSON.stringify(todoList))
+  //   newList.push(newTask)
+  //   newList = newList.sort(orderCondition)
+
+  //   setTodoList(newList)
+  //   setTask("")
+  //   setDeadline("")
+  //   setCategory("")
+  //   setDescription("")
+  // }
+
+
+  // const completeTask = (taskNameToDelete: string): void => {
+  //   setTodoList(todoList.filter((task) => {
+  //     return task.taskName != taskNameToDelete
+  //   }))
+  // }
 
   const orderCondition = (taskA: any, taskB: any): number => {
     if (taskB.deadline.slice(0, 2) * 1 > taskA.deadline.slice(0, 2) * 1) {
@@ -66,30 +113,7 @@ const App: FC = () => {
 
         <h1><img className='logo' src="/img/todoList.png" alt="todoList-icon" />daily planner</h1>
 
-        <div className='newTaskCard'>
-
-          <div className="add-icon"><span>+</span></div>
-          <div className="add-inputs">
-            <h6>Add new task</h6>
-            <div className='taskName-time'>
-              <input type="text" placeholder='Task' name="task" value={task} onChange={handleChange} />
-              <input type="time" name="deadline" value={deadline} onChange={handleChange} className="timeInput" />
-            </div>
-
-            <select name="category" id="category" value={category} onChange={handleChange}>
-              <option value="1">Workout</option>
-              <option value="2">Work</option>
-              <option value="3">Social</option>
-              <option value="4">Health</option>
-              <option value="5">Other</option>
-            </select>
-
-            <input type="text" placeholder='Description' name="description" value={description} onChange={handleChange} className="descriptionInput"></input>
-            <div className='add-btn-container'>
-              <button onClick={addTask} className='add-btn'>add</button>
-            </div>
-          </div>
-        </div>
+        <NewTask saveTask={handleSaveTask} />
 
         <DatePicker />
       </div>
@@ -100,8 +124,8 @@ const App: FC = () => {
           <h1>Today's schedule</h1>
           <h1 className="currentDay">{currentDay()}</h1>
           <div>
-            {todoList.map((task: ITask, key: number) => {
-              return <TodoTask key={key} task={task} completeTask={completeTask} />
+            {tasks.map((task: ITask) => {
+              return <TodoTask key={task._id} updateTask={handleUpdateTask} deleteTask={handleDeleteTask} task={task} />
             })}
           </div>
         </div>

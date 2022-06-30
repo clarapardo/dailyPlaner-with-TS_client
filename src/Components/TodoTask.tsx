@@ -1,22 +1,24 @@
-import React from "react";
-import { ITask } from "../interfaces/ITask";
+import React, { FC } from "react";
 
-interface Props {
-    task: ITask
-    completeTask(taskNameToDelete: string): void
+
+type Props = TaskProps & {
+    updateTask: (task: ITask) => void
+    deleteTask: (_id: string) => void
 }
 
 
-const TodoTask = ({ task, completeTask }: Props) => {
+const Task: FC<Props> = ({ task, updateTask, deleteTask }) => {
     return (
         <div className="eachTask">
+
             <div>+</div>
+
             <div className="task">
                 <div className="add-icon">+</div>
                 <div className="taskInfo">
                     <div className="taskTitle">
-                        <h2>{task.taskName} <button onClick={() => { completeTask(task.taskName) }}><img className="trash" src="/img/bin.png" alt="bin" /></button></h2>
-                        <h3>{task.deadline}</h3>
+                        <h2>{task.taskName} <button onClick={() => updateTask(task)}><img className="trash" src="/img/bin.png" alt="bin" /></button></h2>
+                        <h3>{task.description}</h3>
                     </div>
                     <div>
                         <p>{task.description}</p>
@@ -24,10 +26,11 @@ const TodoTask = ({ task, completeTask }: Props) => {
 
                 </div>
             </div>
-        
+
         </div>
     )
 }
 
 
-export default TodoTask
+
+export default Task

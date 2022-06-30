@@ -11,5 +11,4 @@ Pending:
 
 
 - Add Bootstrap
-- Save info on an API ¿?
 - Posibility of adding task to other days + bottom messages "correctly added"
