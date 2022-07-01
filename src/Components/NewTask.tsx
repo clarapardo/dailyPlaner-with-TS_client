@@ -16,6 +16,7 @@ const AddTask: FC<Props> = ({ saveTask }) => {
             ...formData,
             [e.currentTarget.id]: e.currentTarget.value,
         })
+        console.log('*******', formData)
     }
 
     return (
@@ -27,11 +28,11 @@ const AddTask: FC<Props> = ({ saveTask }) => {
                 <h6>Add new task</h6>
 
                 <div className='taskName-time'>
-                    <input type="text" placeholder='Task' name="task" onChange={handleForm} />
-                    <input type="time" name="deadline" onChange={handleForm} className="timeInput" />
+                    <input type="text" placeholder='Task' name="taskName" id="taskName" onChange={handleForm} />
+                    <input type="datetime-local" name="deadline" id="deadline" onChange={handleForm} className="timeInput" />
                 </div>
 
-                {/* <select name="category" id="category" onChange={handleForm}>
+                {/* <select name="category" id="category" onChange={e => this.change(e)}>
                     <option value="workout">Workout</option>
                     <option value="work">Work</option>
                     <option value="social">Social</option>
@@ -39,7 +40,7 @@ const AddTask: FC<Props> = ({ saveTask }) => {
                     <option value="other">Other</option>
                 </select> */}
 
-                <input type="text" placeholder='Description' name="description" onChange={handleForm} className="descriptionInput"></input>
+                <input type="text" placeholder='Description' name="description" id="description" onChange={handleForm} className="descriptionInput"></input>
 
                 <div className='add-btn-container'>
                     <button disabled={formData === undefined ? true : false} className='add-btn'>add</button>

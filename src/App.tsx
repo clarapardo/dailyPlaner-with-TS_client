@@ -1,4 +1,4 @@
-import React, { FC, ChangeEvent, useEffect, useState, isValidElement } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import './App.css';
 import TodoTask from './components/TodoTask'
 import NewTask from './components/NewTask'
@@ -145,7 +145,7 @@ const App: FC = () => {
       </div>
 
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

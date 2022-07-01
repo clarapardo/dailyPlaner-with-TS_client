@@ -1,12 +1,12 @@
 import axios, { AxiosResponse } from "axios"
 
-const baseUrl: string = "http://localhost:5005"
+const baseUrl: string = "http://localhost:5005/api"
 
 
 
 export const getTasks = async (): Promise<AxiosResponse<ApiDataType>> => {
     try {
-        const tasks: AxiosResponse<ApiDataType> = await axios.get(baseUrl + "/tasks")
+        const tasks: AxiosResponse<ApiDataType> = await axios.get(baseUrl + "/all")
         return tasks
 
     } catch (error) {
@@ -25,7 +25,7 @@ export const addTask = async (formData: ITask): Promise<AxiosResponse<ApiDataTyp
             status: 'toDo',
         }
 
-        const saveTask: AxiosResponse<ApiDataType> = await axios.post(baseUrl + "/add-task", task)
+        const saveTask: AxiosResponse<ApiDataType> = await axios.post(baseUrl + "/add", task)
         return saveTask
 
     } catch (error) {
@@ -39,7 +39,7 @@ export const updateTask = async (task: ITask): Promise<AxiosResponse<ApiDataType
         const taskUpdate: Pick<ITask, 'status'> = {
             status: 'completed',
         }
-        const updatedTask: AxiosResponse<ApiDataType> = await axios.put(`${baseUrl}/edit-task/${task._id}`, taskUpdate)
+        const updatedTask: AxiosResponse<ApiDataType> = await axios.put(`${baseUrl}/update/${task._id}`, taskUpdate)
         return updatedTask
 
     } catch (error) {
@@ -50,7 +50,7 @@ export const updateTask = async (task: ITask): Promise<AxiosResponse<ApiDataType
 
 export const deleteTask = async (_id: string): Promise<AxiosResponse<ApiDataType>> => {
     try {
-        const deletedTask: AxiosResponse<ApiDataType> = await axios.delete(`${baseUrl}/delete-task/${_id}`)
+        const deletedTask: AxiosResponse<ApiDataType> = await axios.delete(`${baseUrl}/delete/${_id}`)
         return deletedTask
 
     } catch (error) {
