@@ -19,6 +19,12 @@ const AddTask: FC<Props> = ({ saveTask }) => {
         console.log('*******', formData)
     }
 
+    const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const value = event.target.value
+        setFormData({ ...formData, "category": value })
+        console.log('!!!!!', formData)
+    }
+
     return (
         <form className='newTaskCard' onSubmit={(e) => saveTask(e, formData)}>
 
@@ -27,18 +33,21 @@ const AddTask: FC<Props> = ({ saveTask }) => {
 
                 <h6>Add new task</h6>
 
-                <div className='taskName-time'>
-                    <input type="text" placeholder='Task' name="taskName" id="taskName" onChange={handleForm} />
+                <input type="text" placeholder='Task' name="taskName" id="taskName" onChange={handleForm} />
+
+                <div className='time-category'>
                     <input type="datetime-local" name="deadline" id="deadline" onChange={handleForm} className="timeInput" />
+
+                    <select className="category-input" name="category" id="category" onChange={selectChange}>
+                        <option value="other">Category</option>
+                        <option value="workout">Workout</option>
+                        <option value="work">Work</option>
+                        <option value="social">Social</option>
+                        <option value="health">Health</option>
+                        <option value="other">Other</option>
+                    </select>
                 </div>
 
-                {/* <select name="category" id="category" onChange={e => this.change(e)}>
-                    <option value="workout">Workout</option>
-                    <option value="work">Work</option>
-                    <option value="social">Social</option>
-                    <option value="health">Health</option>
-                    <option value="other">Other</option>
-                </select> */}
 
                 <input type="text" placeholder='Description' name="description" id="description" onChange={handleForm} className="descriptionInput"></input>
 

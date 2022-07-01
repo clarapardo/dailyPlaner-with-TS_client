@@ -210,12 +210,21 @@ input {
 }
 
 .timeInput {
-  width: 105px;
-  margin-left: 5px
+  width: 100%;
+  color: gray
 }
 
-.taskName-time {
-  display: flex
+.time-category {
+  display: flex;
+}
+
+.category-input {
+  border: 1px solid rgb(227, 227, 227);
+  margin-bottom: 5px;
+  border-radius: 5px;
+  padding: 5px;
+  margin-left: 5px;
+  color: gray
 }
 
 .time-weather {
