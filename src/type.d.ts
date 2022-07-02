@@ -1,7 +1,7 @@
 interface ITask {
     _id: string
     taskName: string
-    deadline: object
+    deadline: Date
     category: string
     description: string
     status: string

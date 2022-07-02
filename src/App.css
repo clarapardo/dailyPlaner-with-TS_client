@@ -1,6 +1,7 @@
 body {
   margin: 0%;
-  padding: 0%
+  padding: 0%;
+  font-size: 0.8rem;
 }
 
 .App {
@@ -102,14 +103,14 @@ body {
 
 .left-panel {
   background-color: rgb(241, 237, 237);
-  height: 100vh;
-  width: 30%;
+  height: 93vh;
+  width: 20%;
   padding: 20px 40px;
 }
 
 .left-panel h1 {
   font-size: 0.9rem;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   color: #226F54
 }
 
@@ -173,7 +174,7 @@ body {
 .add-inputs h6 {
   margin-top: 8px;
   margin-bottom: 15px;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .add-btn-container {
@@ -249,7 +250,9 @@ input {
   margin-right: 20px;
 }
 
-
+.style1 {
+  margin-right: 10px;
+}
 
 
 

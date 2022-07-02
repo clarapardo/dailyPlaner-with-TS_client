@@ -22,7 +22,6 @@ const AddTask: FC<Props> = ({ saveTask }) => {
     const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const value = event.target.value
         setFormData({ ...formData, "category": value })
-        console.log('!!!!!', formData)
     }
 
     return (
@@ -40,7 +39,7 @@ const AddTask: FC<Props> = ({ saveTask }) => {
 
                     <select className="category-input" name="category" id="category" onChange={selectChange}>
                         <option value="other">Category</option>
-                        <option value="workout">Workout</option>
+                        <option value="workout">Fitness</option>
                         <option value="work">Work</option>
                         <option value="social">Social</option>
                         <option value="health">Health</option>

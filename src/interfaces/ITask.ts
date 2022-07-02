@@ -1,6 +1,6 @@
 export interface ITask {
     taskName: string
-    deadline: string
+    deadline: Date
     category: string
     description: string
 }

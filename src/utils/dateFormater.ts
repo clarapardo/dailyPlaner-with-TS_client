@@ -1,9 +1,9 @@
-const currentDay = (): string => {
+const currentDay = (time: Date): string => {
 
-    const today = new Date()
+    const day: number = time.getDate()
     let weekDay: string = 'Saturday'
 
-    switch (today.getDay()) {
+    switch (time.getDay()) {
         case 1:
             weekDay = 'Monday'
             break;
@@ -27,7 +27,21 @@ const currentDay = (): string => {
             break;
     }
 
-    return (`${weekDay} ${today.getDate()}`)
+    return (`${weekDay} ${day}`)
 }
 
-export { currentDay }
+const time = (dateObject: Date): string => {
+
+    dateObject = new Date(dateObject)
+
+    let hour: number | string = dateObject.getHours()
+    let minutes: number | string = dateObject.getMinutes()
+
+    if (hour < 10) hour = '0' + hour
+    if (minutes < 10) minutes = '0' + minutes
+
+    return (`${hour}:${minutes}`)
+
+}
+
+export { currentDay, time }
