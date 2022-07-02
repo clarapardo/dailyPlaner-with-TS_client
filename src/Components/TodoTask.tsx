@@ -11,11 +11,11 @@ type Props = TaskProps & {
 const Task: FC<Props> = ({ task, updateTask, deleteTask }) => {
 
     return (
-        <div className="eachTask">
+        <div className="eachTask" onClick={() => updateTask(task)}>
 
             <div>+</div>
 
-            <div className="task">
+            <div className={task.status === 'toDo' ? "task" : "completedTask"}>
                 <div className="add-icon">+</div>
                 <div className="taskInfo">
                     <div className="taskTitle">
@@ -29,7 +29,7 @@ const Task: FC<Props> = ({ task, updateTask, deleteTask }) => {
                 </div>
             </div>
 
-        </div>
+        </div >
     )
 }
 

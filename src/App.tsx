@@ -11,6 +11,7 @@ import DatePicker from 'sassy-datepicker'
 const App: FC = () => {
 
   const [tasks, setTasks] = useState<ITask[]>([])
+  const [dailyTasks, setDailyTasks] = useState<ITask[]>([])
   const [date, setDate] = useState(new Date())
 
 
@@ -37,7 +38,7 @@ const App: FC = () => {
         }
 
         setTasks(data.tasks)
-
+        fetchTasks()
       })
       .catch((err: Error) => console.log(err))
   }
@@ -49,7 +50,7 @@ const App: FC = () => {
         if (status !== 200) {
           throw new Error("Error! Task not updated")
         }
-        setTasks(data.tasks)
+        fetchTasks()
       })
       .catch(err => console.log(err))
   }
@@ -61,52 +62,66 @@ const App: FC = () => {
         if (status !== 200) {
           throw new Error("Error! Task not deleted")
         }
-        setTasks(data.tasks)
+        fetchTasks()
       })
       .catch(err => console.log(err))
   }
 
-  // const [task, setTask] = useState<string>("")
-  // const [deadline, setDeadline] = useState<string>("")
-  // const [description, setDescription] = useState<string>("")
-  // const [category, setCategory] = useState<string>("")
-  // const [todoList, setTodoList] = useState<ITask[]>([])
 
-
-  // const addTask = (): void => {
-  //   const newTask = { taskName: task, deadline, category, description }
-  //   let newList = JSON.parse(JSON.stringify(todoList))
-  //   newList.push(newTask)
-  //   newList = newList.sort(orderCondition)
-
-  //   setTodoList(newList)
-  //   setTask("")
-  //   setDeadline("")
-  //   setCategory("")
-  //   setDescription("")
-  // }
-
-
-  // const completeTask = (taskNameToDelete: string): void => {
-  //   setTodoList(todoList.filter((task) => {
-  //     return task.taskName != taskNameToDelete
-  //   }))
-  // }
 
   const onChange = (newDate: Date) => setDate(newDate)
 
+  const filterByDate = (task: any) => {
 
-  const orderCondition = (taskA: any, taskB: any): number => {
-    if (taskB.deadline.slice(0, 2) * 1 > taskA.deadline.slice(0, 2) * 1) {
-      return -1
-    } else if (taskB.deadline.slice(0, 2) * 1 < taskA.deadline.slice(0, 2) * 1) {
+    if (new Date(task.deadline).getDate() === date.getDate() &&
+      new Date(task.deadline).getMonth() === date.getMonth() &&
+      new Date(task.deadline).getFullYear() === date.getFullYear()) {
+      return task
+    }
+  }
+
+  const orderConditions = (taskA: any, taskB: any): number => {
+
+    let deadlineA = new Date(taskA.deadline)
+    let deadlineB = new Date(taskB.deadline)
+
+    if (taskB.status === 'toDo' && taskA.status === 'completed') {
       return 1
-    } else {
-      if (taskB.deadline.slice(3) * 1 > taskA.deadline.slice(3) * 1) {
+    } else if (taskA.status === 'toDo' && taskB.status === 'completed') {
+      return -1
+    } else if (taskB.status === 'toDo' && taskA.status === 'toDo') {
+      if (deadlineB.getHours() > deadlineA.getHours()) {
         return -1
-      } else {
+      } else if (deadlineB.getHours() < deadlineA.getHours()) {
         return 1
+      } else {
+        if (deadlineB.getMinutes() > deadlineA.getMinutes()) {
+          return -1
+        } else {
+          return 1
+        }
       }
+    } else {
+      if (deadlineB.getHours() > deadlineA.getHours()) {
+        return -1
+      } else if (deadlineB.getHours() < deadlineA.getHours()) {
+        return 1
+      } else {
+        if (deadlineB.getMinutes() > deadlineA.getMinutes()) {
+          return -1
+        } else {
+          return 1
+        }
+      }
+    }
+  }
+
+  const orderByStatus = (taskA: any, taskB: any): number => {
+
+    if (taskB.status === 'toDo' && taskA.status === 'completed') {
+      return -1
+    } else {
+      return 1
     }
   }
 
@@ -117,7 +132,7 @@ const App: FC = () => {
       <div className="left-panel">
         <h1><img className='logo' src="/img/todoList.png" alt="todoList-icon" />daily planner</h1>
         <NewTask saveTask={handleSaveTask} />
-        <DatePicker onChange={onChange} selected={date} />
+        <DatePicker onChange={onChange} />
       </div>
 
       <div className="right-panel">
@@ -127,9 +142,12 @@ const App: FC = () => {
           <h1 className="currentDay">{currentDay(date)}</h1>
 
           <div>
-            {tasks.map((task: ITask) => {
-              return <TodoTask key={task._id} updateTask={handleUpdateTask} deleteTask={handleDeleteTask} task={task} />
-            })}
+            {tasks
+              .filter(task => filterByDate(task))
+              .sort(orderConditions)
+              .map((task: ITask) => {
+                return <TodoTask key={task._id} updateTask={handleUpdateTask} deleteTask={handleDeleteTask} task={task} />
+              })}
           </div>
         </div>
 
