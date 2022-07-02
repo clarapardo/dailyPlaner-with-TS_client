@@ -1,0 +1,109 @@
+.eachTask {
+    display: flex;
+}
+
+.task {
+    width: 100%;
+    padding: 20px;
+    height: auto;
+    display: flex;
+    color: black;
+    margin: 10px;
+    background-color: #b6e8807b;
+    border-radius: 15px;
+}
+
+.task:hover {
+    background-color: rgb(241, 237, 237);
+    font-weight: lighter;
+    text-decoration: line-through;
+}
+
+.completedTask {
+    width: 100%;
+    padding: 20px;
+    height: auto;
+    display: flex;
+    color: black;
+    margin: 10px;
+    background-color: rgb(241, 237, 237);
+    border-radius: 15px;
+}
+
+.completedTask .taskTitle h2 {
+    font-weight: lighter;
+    text-decoration: line-through;
+}
+
+.taskInfo {
+    padding: 0px 30px;
+    width: 100%;
+}
+
+.taskInfo p {
+    margin-bottom: 0px;
+}
+
+.taskTitle {
+    display: flex;
+    justify-content: space-between;
+}
+
+.taskTitle button {
+    flex: 20%;
+    border: none;
+    background-color: transparent;
+    color: black;
+    cursor: pointer;
+    padding-left: 20px;
+}
+
+.taskTitle h2 {
+    margin: 0px
+}
+
+.taskTitle h3 {
+    margin: 0px;
+    font-weight: lighter;
+    font-size: 0.95rem;
+    padding-top: 5px;
+}
+
+
+/* ----- CATEGORY ICONS ----- */
+.category-icon {
+    border-radius: 5px;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.workout {
+    background-image: url('./../../../../../public/img/hand-holding-dumbbell.png');
+}
+
+.work {
+    background-image: url('./../../../../../public/img/briefcase.png');
+}
+
+.health {
+    background-image: url('./../../../../../public/img/medical-shield.png');
+}
+
+.social {
+    background-image: url('./../../../../../public/img/fist-bump-gesture.png');
+}
+
+.other {
+    background-image: url('./../../../../../public/img/other.png');
+}
+
+
+/* ----- OTHER ICON ----- */
+.trash {
+    width: 12px
+}

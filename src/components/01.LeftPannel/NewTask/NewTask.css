@@ -1,0 +1,89 @@
+.newTaskCard {
+    display: flex;
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.add-icon {
+    background-color: #226F54;
+    padding: 5px;
+    border-radius: 5px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white
+}
+
+.add-icon span {
+    font-size: 1.5rem;
+}
+
+
+
+/* ----- INPUTS FORM ----- */
+.add-inputs {
+    padding-left: 20px;
+    width: 80%
+}
+
+.add-inputs h6 {
+    margin-top: 8px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+input {
+    border: 1px solid rgb(227, 227, 227);
+    width: 95%;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.time-category {
+    display: flex;
+}
+
+.time-input {
+    width: 100%;
+    color: gray
+}
+
+.category-input {
+    border: 1px solid rgb(227, 227, 227);
+    margin-bottom: 5px;
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: 5px;
+    color: gray
+}
+
+.description-input {
+    border: 1px solid rgb(227, 227, 227);
+    width: 95%;
+    height: 60px;
+    border-radius: 5px;
+    padding: 5px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+
+/* ----- BUTTON ----- */
+.add-btn-container {
+    display: flex;
+    justify-content: end;
+}
+
+.add-btn {
+    background-color: #79C99E;
+    border: none;
+    padding: 5px 20px;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+}

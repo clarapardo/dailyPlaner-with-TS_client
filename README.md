@@ -2,11 +2,12 @@
 
 Pending: 
 
-- Incluir un selector de categoría (sports, work, socials, whatever...)
 - Separete things into components
+- Hacer varios CSS, maybe implementing SASS... ¿?
+- Delete the unused dependencies
+- Deployar BBDD / update CORS
 
 
-- Once completed, (bc change | move to the right as a list ¿?)
 - Posibility of filtered visualization based on category
 
 

@@ -19,3 +19,11 @@ type ApiDataType = {
     tasks: ITask[]
     task?: ITask
 }
+
+interface TasksProps {
+    tasks: ITask[]
+}
+
+interface DateProps {
+    date: Date
+}

@@ -1,0 +1,36 @@
+ .section1 {
+     padding: 20px 60px;
+     width: 70%;
+ }
+
+ .section1 h1 {
+     margin-bottom: 10px;
+ }
+
+ .dateTitle {
+     display: flex
+ }
+
+ .addDays-btn {
+     align-items: center;
+     background-color: rgb(241, 238, 238);
+     border: none;
+     border-radius: 0.5rem;
+     cursor: pointer;
+     display: flex;
+     font-family: var(--font);
+     font-size: 0.8rem;
+     height: 1.8rem;
+     justify-content: center;
+     transition: all .2s ease-in-out;
+     width: 1.8rem;
+     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+ }
+
+ .currentDay {
+     color: #97DB4F;
+     margin: 0px;
+     font-weight: lighter;
+     width: 30%;
+     text-align: center;
+ }
