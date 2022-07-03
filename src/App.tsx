@@ -1,5 +1,7 @@
 import './App.css'
 import React, { FC, useEffect, useState } from 'react'
+import { Row, Col } from 'react-bootstrap'
+
 
 import LeftPanel from './components/01.LeftPannel/LeftPanel'
 import RightPanel from './components/02.RightPanel/RightPanel'
@@ -79,8 +81,18 @@ const App: FC = () => {
 
   return (
     <div className="App">
-      <LeftPanel handleSaveTask={handleSaveTask} onChange={onChange} />
-      <RightPanel addDays={addDays} handleUpdateTask={handleUpdateTask} handleDeleteTask={handleDeleteTask} tasks={tasks} date={date} />
+    
+      <Row>
+        <Col md={3} className="noSpaces">
+          <LeftPanel handleSaveTask={handleSaveTask} onChange={onChange} />
+        </Col>
+
+        <Col md={9} className="noSpaces">
+          <RightPanel addDays={addDays} handleUpdateTask={handleUpdateTask} handleDeleteTask={handleDeleteTask} tasks={tasks} date={date} />
+        </Col>
+
+      </Row>
+
     </div>
   )
 }

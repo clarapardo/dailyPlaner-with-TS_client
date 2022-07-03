@@ -1,5 +1,6 @@
 .eachTask {
     display: flex;
+    padding-left: 50px;
 }
 
 .task {
@@ -9,14 +10,12 @@
     display: flex;
     color: black;
     margin: 10px;
-    background-color: #b6e8807b;
+    background-color: #87d279;
     border-radius: 15px;
 }
 
 .task:hover {
     background-color: rgb(241, 237, 237);
-    font-weight: lighter;
-    text-decoration: line-through;
 }
 
 .completedTask {
@@ -36,17 +35,18 @@
 }
 
 .taskInfo {
-    padding: 0px 30px;
     width: 100%;
 }
 
-.taskInfo p {
+.taskTitle p {
     margin-bottom: 0px;
+    font-size: 0.75rem
 }
 
 .taskTitle {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: start;
 }
 
 .taskTitle button {
@@ -59,11 +59,14 @@
 }
 
 .taskTitle h2 {
-    margin: 0px
+    margin: 0px;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
-.taskTitle h3 {
+.hour-update-delete h3 {
     margin: 0px;
+    margin-bottom: 5px;
     font-weight: lighter;
     font-size: 0.95rem;
     padding-top: 5px;
@@ -104,6 +107,18 @@
 
 
 /* ----- OTHER ICON ----- */
+.check {
+    width: 15px
+}
+
+.check:hover {
+    cursor: pointer;
+}
+
 .trash {
-    width: 12px
+    width: 18px
+}
+
+.trash:hover {
+    cursor: pointer;
 }

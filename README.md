@@ -2,14 +2,12 @@
 
 Pending: 
 
-- Separete things into components
-- Hacer varios CSS, maybe implementing SASS... ¿?
+
+- Bottom messages "correctly added"
+- Cambiar el logo del navegador
+
 - Delete the unused dependencies
 - Deployar BBDD / update CORS
 
-
+- Maybe implementing SASS... ¿?
 - Posibility of filtered visualization based on category
-
-
-- Add Bootstrap
-- Posibility of adding task to other days + bottom messages "correctly added"

@@ -1,12 +1,15 @@
 .premium {
-    background-color: rgb(241, 237, 237);
+    /* background-color: rgb(241, 237, 237); */
     border-radius: 15px;
     padding: 20px;
-    height: 200px;
-    width: 70%;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;
+    width: 100%;
+    /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important; */
     margin-top: 50px;
     margin-right: 20px;
+    background-color: rgba(247, 241, 241, 0.1);
+    backdrop-filter: blur(16px) brightness(125%);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
 
     display: flex;
     flex-direction: column;
@@ -22,21 +25,11 @@
     margin: 0px;
 }
 
-.premium button {
-    background-color: #79C99E;
-    border: none;
-    padding: 10px 25px;
-    border-radius: 20px;
-    color: black;
-    cursor: pointer;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    font-weight: bolder;
-}
-
 .premium p {
     font-size: 0.7rem;
     font-style: italic;
     margin-top: 0px;
+    color: white;
 }
 
 .premium li {
@@ -45,6 +38,7 @@
 
 .premium hr {
     width: 95%;
+    color: white;
 }
 
 .list {
@@ -53,4 +47,7 @@
 
 .list ul {
     padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    color: white;
 }

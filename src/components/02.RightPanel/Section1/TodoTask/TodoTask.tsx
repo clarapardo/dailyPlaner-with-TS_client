@@ -1,6 +1,8 @@
 import './TodoTask.css'
 import React, { FC } from "react"
 import { time } from "../../../../utils/dateFormater"
+import { Row, Col, Container, Collapse } from 'react-bootstrap'
+
 
 
 type Props = TaskProps & {
@@ -21,21 +23,27 @@ const categoryImg = (category: string) => {
 const Task: FC<Props> = ({ task, updateTask, deleteTask }) => {
 
     return (
-        <div className="eachTask" onClick={() => updateTask(task)}>
+        <div className="eachTask">
 
             <div className={task.status === 'toDo' ? "task" : "completedTask"}>
 
-                <div className={categoryImg(task.category)}></div>
+                <Row className="taskInfo">
+                    <Col md={1}><div className={categoryImg(task.category)}></div></Col>
+                    <Col md={11}>
+                        <Row>
+                            <Col md={10} className="taskTitle">
+                                <h2>{task.taskName}</h2>
+                                <p>{task.description}</p>
+                            </Col>
+                            <Col md={2} className="hour-update-delete">
+                                <h3>{time(task.deadline)}</h3>
+                                <img className="check" src="/img/check.png" alt="check" onClick={() => updateTask(task)} />
+                                <img className="trash" src="/img/delete.png" alt="bin" onClick={() => deleteTask(task._id)} />
 
-                <div className="taskInfo">
-                    <div className="taskTitle">
-                        <h2>{task.taskName} <button onClick={() => deleteTask(task._id)}><img className="trash" src="/img/bin.png" alt="bin" /></button></h2>
-                        <h3>{time(task.deadline)}</h3>
-                    </div>
-                    <div>
-                        <p>{task.description}</p>
-                    </div>
-                </div>
+                            </Col>
+                        </Row>
+                    </Col>
+                </Row>
 
             </div>
 

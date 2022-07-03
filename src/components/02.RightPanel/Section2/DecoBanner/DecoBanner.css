@@ -1,13 +1,18 @@
-.time-weather {
+.clock {
     background-color: rgb(241, 237, 237);
-    background-image: url("./../../../../../public/img/sun.png");
-    background-size: 75px;
-    background-repeat: no-repeat;
     border-radius: 15px;
     padding: 20px;
     height: 100px;
-    width: 70%;
+    width: 100%;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;
     margin-top: 50px;
     margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.box-reloj h1 {
+    margin-bottom: 0px;
+    letter-spacing: 2px;
 }

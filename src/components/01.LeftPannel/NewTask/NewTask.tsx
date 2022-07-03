@@ -10,7 +10,12 @@ type Props = {
 
 const AddTask: FC<Props> = ({ saveTask }) => {
 
-    const [formData, setFormData] = useState<ITask | {}>()
+    const [formData, setFormData] = useState<ITask>({
+        taskName: '',
+        deadline: new Date(),
+        category: '',
+        description: ''
+    })
 
     const handleForm = (e: React.FormEvent<HTMLInputElement>): void => {
         setFormData({
@@ -24,20 +29,31 @@ const AddTask: FC<Props> = ({ saveTask }) => {
         setFormData({ ...formData, "category": value })
     }
 
+    const saveAndReset = (e: React.FormEvent<HTMLFormElement>): void => {
+        saveTask(e, formData)
+        setFormData({
+            taskName: '',
+            deadline: new Date(),
+            category: 'other',
+            description: ''
+        })
+    }
+
     return (
-        <form className='newTaskCard' onSubmit={(e) => saveTask(e, formData)}>
+        <form className='newTaskCard' onSubmit={(e) => saveAndReset(e)}>
 
             <div className="add-icon"><span>+</span></div>
+
             <div className="add-inputs">
 
                 <h6>Add new task</h6>
 
-                <input type="text" placeholder='Task' name="taskName" id="taskName" onChange={handleForm} />
+                <input type="text" placeholder='Task' name="taskName" id="taskName" onChange={handleForm} value={formData.taskName} className="taskName-input" />
 
                 <div className='time-category'>
                     <input type="datetime-local" name="deadline" id="deadline" onChange={handleForm} className="time-input" />
 
-                    <select className="category-input" name="category" id="category" onChange={selectChange}>
+                    <select className="category-input" name="category" id="category" value={formData.category} onChange={selectChange}>
                         <option value="other">Category</option>
                         <option value="workout">Fitness</option>
                         <option value="work">Work</option>
@@ -48,7 +64,7 @@ const AddTask: FC<Props> = ({ saveTask }) => {
                 </div>
 
 
-                <input type="text" placeholder='Description' name="description" id="description" onChange={handleForm} className="description-input"></input>
+                <input type="text" placeholder='Description' name="description" id="description" value={formData.description} onChange={handleForm} className="description-input"></input>
 
                 <div className='add-btn-container'>
                     <button disabled={formData === undefined ? true : false} className='add-btn'>add</button>

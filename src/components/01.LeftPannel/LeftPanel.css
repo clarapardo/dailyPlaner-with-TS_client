@@ -1,18 +1,23 @@
 .left-panel {
-    background-color: rgb(241, 237, 237);
-    height: 94vh;
-    width: 20%;
+    background-color: rgb(50, 49, 49);
+    height: 100%;
     padding: 20px 40px;
-    /* position: fixed; */
 }
 
 .left-panel h1 {
     font-size: 0.9rem;
-    margin-bottom: 20px;
-    color: #226F54
+    color: #79C99E;
+    margin-bottom: 0px;
 }
 
-.logo {
-    width: 13px;
+.styleLogo {
+    opacity: 1;
+    width: 20px;
     margin-right: 10px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }

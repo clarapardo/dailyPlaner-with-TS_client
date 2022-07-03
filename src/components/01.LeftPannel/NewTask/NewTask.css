@@ -3,11 +3,14 @@
     background-color: white;
     border-radius: 15px;
     padding: 20px;
+    width: 100%;
+    background-color: rgba(247, 241, 241, 0.1);
+    backdrop-filter: blur(16px) brightness(125%);
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .add-icon {
-    background-color: #226F54;
+    background-color: #79C99E;
     padding: 5px;
     border-radius: 5px;
     width: 20px;
@@ -15,7 +18,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white
+    color: #323131;
 }
 
 .add-icon span {
@@ -27,25 +30,33 @@
 /* ----- INPUTS FORM ----- */
 .add-inputs {
     padding-left: 20px;
-    width: 80%
+    width: 92%
 }
 
 .add-inputs h6 {
     margin-top: 8px;
     margin-bottom: 15px;
-    font-size: 0.9rem;
+    color: white;
 }
 
 input {
     border: 1px solid rgb(227, 227, 227);
     width: 95%;
-    margin-bottom: 5px;
     border-radius: 5px;
     padding: 5px;
+    font-size: 0.8rem;
+}
+
+.taskName-input {
+    font-size: 0.7rem;
+    margin-bottom: 5px;
 }
 
 .time-category {
     display: flex;
+    font-size: 0.7rem;
+    margin-bottom: 5px;
+    margin-right: 12px
 }
 
 .time-input {
@@ -55,7 +66,6 @@ input {
 
 .category-input {
     border: 1px solid rgb(227, 227, 227);
-    margin-bottom: 5px;
     border-radius: 5px;
     padding: 5px;
     margin-left: 5px;
@@ -69,6 +79,8 @@ input {
     border-radius: 5px;
     padding: 5px;
     font-family: 'Open Sans', sans-serif;
+    font-size: 0.7rem;
+    margin-bottom: 10px;
 }
 
 
@@ -84,6 +96,8 @@ input {
     border: none;
     padding: 5px 20px;
     border-radius: 20px;
-    color: white;
+    font-size: 0.8rem;
+    color: #323131;
     cursor: pointer;
+    margin-right: 10px;
 }

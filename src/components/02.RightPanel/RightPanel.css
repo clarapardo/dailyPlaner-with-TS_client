@@ -1,4 +1,9 @@
- .rightPanel {
-     display: flex;
-     width: 100%;
- }
+.rightPanel {
+    background-color: #2a2b2eec;
+    height: auto;
+}
+
+.col-section2 {
+    margin-right: 0px;
+    padding-right: 0px;
+}

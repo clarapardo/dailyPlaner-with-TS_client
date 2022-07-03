@@ -18,7 +18,7 @@ const PremiumAdd = () => {
 
             <hr />
             <p>$3,99 / month after 3 day trial</p>
-            <button>upgrade</button>
+            <button className="add-btn">upgrade</button>
 
         </div>
     )
