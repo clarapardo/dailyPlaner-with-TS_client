@@ -1,6 +1,6 @@
 import './RightPanel.css'
 import { FC } from 'react'
-import { Row, Col, Container } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 import { currentDay } from './../../utils/dateFormater'
 
 
