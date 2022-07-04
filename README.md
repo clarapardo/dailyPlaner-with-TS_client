@@ -3,8 +3,6 @@
 Pending: 
 
 - Bottom messages "correctly added"
-
-- Delete the unused dependencies
 - Deployar BBDD / update CORS
 
 - Maybe implementing SASS... ¿?

@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from "axios"
 
-const baseUrl: string = "http://localhost:5005/api"
+const baseUrl: string = "https://tasksplaner.herokuapp.com/api"
 
 
 
