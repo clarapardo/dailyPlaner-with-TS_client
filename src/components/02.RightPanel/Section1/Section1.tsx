@@ -1,6 +1,5 @@
 import './Section1.css'
-import { FC, useState } from 'react'
-import { Container } from 'react-bootstrap'
+import { FC } from 'react'
 
 import TodoTask from './TodoTask/TodoTask'
 
@@ -13,8 +12,6 @@ type Props = TasksProps & DateProps & {
 
 
 const Section1: FC<Props> = ({ tasks, date, addDays, handleUpdateTask, handleDeleteTask }) => {
-
-    const [todaysTasks, setTodaysTasks] = useState(tasks)
 
     const filterByDate = (task: any) => {
 

@@ -1,5 +1,5 @@
 import './DecoBanner.css'
-import React, { FC, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 
 
